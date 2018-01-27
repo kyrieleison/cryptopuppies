@@ -17,8 +17,9 @@ contract CryptoPuppies {
     return puppies[_number].owner;
   }
 
-  function createPuppies(address _owner, uint _genes, string _name) public {
-    puppies.push(Puppy(_owner, _genes, _name));
+  function createPuppies(uint _genes, string _name) public returns(struct[]) {
+    puppies.push(Puppy(msg.sender, _genes, _name));
+    return puppies;
   }
 
 }

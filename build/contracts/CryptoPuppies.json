@@ -3,17 +3,12 @@
   "abi": [
     {
       "constant": true,
-      "inputs": [
-        {
-          "name": "_number",
-          "type": "uint256"
-        }
-      ],
-      "name": "getPuppyOwner",
+      "inputs": [],
+      "name": "getMyPuppyName",
       "outputs": [
         {
           "name": "",
-          "type": "address"
+          "type": "string"
         }
       ],
       "payable": false,
@@ -31,10 +26,6 @@
       "name": "puppies",
       "outputs": [
         {
-          "name": "owner",
-          "type": "address"
-        },
-        {
           "name": "genes",
           "type": "uint256"
         },
@@ -51,15 +42,15 @@
       "constant": true,
       "inputs": [
         {
-          "name": "_number",
-          "type": "uint256"
+          "name": "",
+          "type": "address"
         }
       ],
-      "name": "getPuppyName",
+      "name": "puppyIndexesByOwner",
       "outputs": [
         {
           "name": "",
-          "type": "string"
+          "type": "uint256"
         }
       ],
       "payable": false,
@@ -85,18 +76,18 @@
       "type": "function"
     }
   ],
-  "bytecode": "0x6060604052341561000f57600080fd5b6106b58061001e6000396000f300606060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680638ae57cb114610067578063aebf749c146100ca578063b008aa26146101bd578063c6e3cdf914610259575b600080fd5b341561007257600080fd5b61008860048080359060200190919050506102bf565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34156100d557600080fd5b6100eb6004808035906020019091905050610308565b604051808473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001838152602001806020018281038252838181546001816001161561010002031660029004815260200191508054600181600116156101000203166002900480156101ac5780601f10610181576101008083540402835291602001916101ac565b820191906000526020600020905b81548152906001019060200180831161018f57829003601f168201915b505094505050505060405180910390f35b34156101c857600080fd5b6101de6004808035906020019091905050610360565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561021e578082015181840152602081019050610203565b50505050905090810190601f16801561024b5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b341561026457600080fd5b6102bd600480803590602001909190803590602001908201803590602001908080601f01602080910402602001604051908101604052809392919081815260200183838082843782019150505050505091905050610428565b005b600080828154811015156102cf57fe5b906000526020600020906003020160000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169050919050565b60008181548110151561031757fe5b90600052602060002090600302016000915090508060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169080600101549080600201905083565b6103686104f8565b60008281548110151561037757fe5b90600052602060002090600302016002018054600181600116156101000203166002900480601f01602080910402602001604051908101604052809291908181526020018280546001816001161561010002031660029004801561041c5780601f106103f15761010080835404028352916020019161041c565b820191906000526020600020905b8154815290600101906020018083116103ff57829003601f168201915b50505050509050919050565b6000805480600101828161043c919061050c565b916000526020600020906003020160006060604051908101604052803373ffffffffffffffffffffffffffffffffffffffff16815260200186815260200185815250909190915060008201518160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506020820151816001015560408201518160020190805190602001906104f092919061053e565b505050505050565b602060405190810160405280600081525090565b8154818355818115116105395760030281600302836000526020600020918201910161053891906105be565b5b505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061057f57805160ff19168380011785556105ad565b828001600101855582156105ad579182015b828111156105ac578251825591602001919060010190610591565b5b5090506105ba919061061c565b5090565b61061991905b8082111561061557600080820160006101000a81549073ffffffffffffffffffffffffffffffffffffffff0219169055600182016000905560028201600061060c9190610641565b506003016105c4565b5090565b90565b61063e91905b8082111561063a576000816000905550600101610622565b5090565b90565b50805460018160011615610100020316600290046000825580601f106106675750610686565b601f016020900490600052602060002090810190610685919061061c565b5b505600a165627a7a72305820f03e2995f91b85f2e37a1da3ef761c0d642bbc4a2525cd17a0025287dfbaaf560029",
-  "deployedBytecode": "0x606060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680638ae57cb114610067578063aebf749c146100ca578063b008aa26146101bd578063c6e3cdf914610259575b600080fd5b341561007257600080fd5b61008860048080359060200190919050506102bf565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34156100d557600080fd5b6100eb6004808035906020019091905050610308565b604051808473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001838152602001806020018281038252838181546001816001161561010002031660029004815260200191508054600181600116156101000203166002900480156101ac5780601f10610181576101008083540402835291602001916101ac565b820191906000526020600020905b81548152906001019060200180831161018f57829003601f168201915b505094505050505060405180910390f35b34156101c857600080fd5b6101de6004808035906020019091905050610360565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561021e578082015181840152602081019050610203565b50505050905090810190601f16801561024b5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b341561026457600080fd5b6102bd600480803590602001909190803590602001908201803590602001908080601f01602080910402602001604051908101604052809392919081815260200183838082843782019150505050505091905050610428565b005b600080828154811015156102cf57fe5b906000526020600020906003020160000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169050919050565b60008181548110151561031757fe5b90600052602060002090600302016000915090508060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169080600101549080600201905083565b6103686104f8565b60008281548110151561037757fe5b90600052602060002090600302016002018054600181600116156101000203166002900480601f01602080910402602001604051908101604052809291908181526020018280546001816001161561010002031660029004801561041c5780601f106103f15761010080835404028352916020019161041c565b820191906000526020600020905b8154815290600101906020018083116103ff57829003601f168201915b50505050509050919050565b6000805480600101828161043c919061050c565b916000526020600020906003020160006060604051908101604052803373ffffffffffffffffffffffffffffffffffffffff16815260200186815260200185815250909190915060008201518160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506020820151816001015560408201518160020190805190602001906104f092919061053e565b505050505050565b602060405190810160405280600081525090565b8154818355818115116105395760030281600302836000526020600020918201910161053891906105be565b5b505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061057f57805160ff19168380011785556105ad565b828001600101855582156105ad579182015b828111156105ac578251825591602001919060010190610591565b5b5090506105ba919061061c565b5090565b61061991905b8082111561061557600080820160006101000a81549073ffffffffffffffffffffffffffffffffffffffff0219169055600182016000905560028201600061060c9190610641565b506003016105c4565b5090565b90565b61063e91905b8082111561063a576000816000905550600101610622565b5090565b90565b50805460018160011615610100020316600290046000825580601f106106675750610686565b601f016020900490600052602060002090810190610685919061061c565b5b505600a165627a7a72305820f03e2995f91b85f2e37a1da3ef761c0d642bbc4a2525cd17a0025287dfbaaf560029",
-  "sourceMap": "26:464:0:-;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "26:464:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;262:107;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;127:22;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;154:104;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:2;8:100;;;99:1;94:3;90;84:5;80:1;75:3;71;64:6;52:2;49:1;45:3;40:15;;8:100;;;12:14;3:109;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;373:114:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;262:107;320:7;342;350;342:16;;;;;;;;;;;;;;;;;;;;:22;;;;;;;;;;;;335:29;;262:107;;;:::o;127:22::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;154:104::-;211:6;;:::i;:::-;232:7;240;232:16;;;;;;;;;;;;;;;;;;;;:21;;225:28;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;154:104;;;:::o;373:114::-;436:7;:46;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;449:32;;;;;;;;;455:10;449:32;;;;;;467:6;449:32;;;;475:5;449:32;;;436:46;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;373:114;;:::o;26:464::-;;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o",
-  "source": "pragma solidity ^0.4.18;\n\ncontract CryptoPuppies {\n  struct Puppy {\n    address owner;\n    uint genes;\n    string name;\n  }\n\n  Puppy[] public puppies;\n\n  function getPuppyName(uint _number) public view returns (string) {\n    return puppies[_number].name;\n  }\n\n  function getPuppyOwner(uint _number) public view returns (address) {\n    return puppies[_number].owner;\n  }\n\n  function createPuppies(uint _genes, string _name) public {\n    puppies.push(Puppy(msg.sender, _genes, _name));\n  }\n\n}\n",
-  "sourcePath": "/Users/wakitakouji/cryptopuppies/contracts/CryptoPuppies.sol",
+  "bytecode": "0x6060604052341561000f57600080fd5b6106048061001e6000396000f300606060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680633638505314610067578063aebf749c146100f5578063b61a35d1146101b5578063c6e3cdf914610202575b600080fd5b341561007257600080fd5b61007a610268565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156100ba57808201518184015260208101905061009f565b50505050905090810190601f1680156100e75780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b341561010057600080fd5b610116600480803590602001909190505061036d565b60405180838152602001806020018281038252838181546001816001161561010002031660029004815260200191508054600181600116156101000203166002900480156101a55780601f1061017a576101008083540402835291602001916101a5565b820191906000526020600020905b81548152906001019060200180831161018857829003601f168201915b5050935050505060405180910390f35b34156101c057600080fd5b6101ec600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190505061039f565b6040518082815260200191505060405180910390f35b341561020d57600080fd5b610266600480803590602001909190803590602001908201803590602001908080601f016020809104026020016040519081016040528093929190818152602001838380828437820191505050505050919050506103b7565b005b61027061046e565b6000600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020548154811015156102be57fe5b90600052602060002090600202016001018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103635780601f1061033857610100808354040283529160200191610363565b820191906000526020600020905b81548152906001019060200180831161034657829003601f168201915b5050505050905090565b60008181548110151561037c57fe5b906000526020600020906002020160009150905080600001549080600101905082565b60016020528060005260406000206000915090505481565b60006001600080548060010182816103cf9190610482565b91600052602060002090600202016000604080519081016040528088815260200187815250909190915060008201518160000155602082015181600101908051906020019061041f9291906104b4565b50505003905080600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002081905550505050565b602060405190810160405280600081525090565b8154818355818115116104af576002028160020283600052602060002091820191016104ae9190610534565b5b505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106104f557805160ff1916838001178555610523565b82800160010185558215610523579182015b82811115610522578251825591602001919060010190610507565b5b509050610530919061056b565b5090565b61056891905b808211156105645760008082016000905560018201600061055b9190610590565b5060020161053a565b5090565b90565b61058d91905b80821115610589576000816000905550600101610571565b5090565b90565b50805460018160011615610100020316600290046000825580601f106105b657506105d5565b601f0160209004906000526020600020908101906105d4919061056b565b5b505600a165627a7a723058201fd0fff8edb7366ba3de76af216fa346449d618c8a5b0bbd1f1045af838d42dc0029",
+  "deployedBytecode": "0x606060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680633638505314610067578063aebf749c146100f5578063b61a35d1146101b5578063c6e3cdf914610202575b600080fd5b341561007257600080fd5b61007a610268565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156100ba57808201518184015260208101905061009f565b50505050905090810190601f1680156100e75780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b341561010057600080fd5b610116600480803590602001909190505061036d565b60405180838152602001806020018281038252838181546001816001161561010002031660029004815260200191508054600181600116156101000203166002900480156101a55780601f1061017a576101008083540402835291602001916101a5565b820191906000526020600020905b81548152906001019060200180831161018857829003601f168201915b5050935050505060405180910390f35b34156101c057600080fd5b6101ec600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190505061039f565b6040518082815260200191505060405180910390f35b341561020d57600080fd5b610266600480803590602001909190803590602001908201803590602001908080601f016020809104026020016040519081016040528093929190818152602001838380828437820191505050505050919050506103b7565b005b61027061046e565b6000600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020548154811015156102be57fe5b90600052602060002090600202016001018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103635780601f1061033857610100808354040283529160200191610363565b820191906000526020600020905b81548152906001019060200180831161034657829003601f168201915b5050505050905090565b60008181548110151561037c57fe5b906000526020600020906002020160009150905080600001549080600101905082565b60016020528060005260406000206000915090505481565b60006001600080548060010182816103cf9190610482565b91600052602060002090600202016000604080519081016040528088815260200187815250909190915060008201518160000155602082015181600101908051906020019061041f9291906104b4565b50505003905080600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002081905550505050565b602060405190810160405280600081525090565b8154818355818115116104af576002028160020283600052602060002091820191016104ae9190610534565b5b505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106104f557805160ff1916838001178555610523565b82800160010185558215610523579182015b82811115610522578251825591602001919060010190610507565b5b509050610530919061056b565b5090565b61056891905b808211156105645760008082016000905560018201600061055b9190610590565b5060020161053a565b5090565b90565b61058d91905b80821115610589576000816000905550600101610571565b5090565b90565b50805460018160011615610100020316600290046000825580601f106105b657506105d5565b601f0160209004906000526020600020908101906105d4919061056b565b5b505600a165627a7a723058201fd0fff8edb7366ba3de76af216fa346449d618c8a5b0bbd1f1045af838d42dc0029",
+  "sourceMap": "26:454:0:-;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "26:454:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;192:118;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:2;8:100;;;99:1;94:3;90;84:5;80:1;75:3;71;64:6;52:2;49:1;45:3;40:15;;8:100;;;12:14;3:109;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;108:22:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;135:52;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;314:164;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;192:118;239:6;;:::i;:::-;260:7;268:19;:31;288:10;268:31;;;;;;;;;;;;;;;;260:40;;;;;;;;;;;;;;;;;;;;:45;;253:52;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;192:118;:::o;108:22::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;135:52::-;;;;;;;;;;;;;;;;;:::o;314:164::-;377:10;427:1;390:7;:34;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;403:20;;;;;;;;;409:6;403:20;;;;417:5;403:20;;;390:34;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;:38;377:51;;468:5;434:19;:31;454:10;434:31;;;;;;;;;;;;;;;:39;;;;314:164;;;:::o;26:454::-;;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o",
+  "source": "pragma solidity ^0.4.18;\n\ncontract CryptoPuppies {\n  struct Puppy {\n    uint genes;\n    string name;\n  }\n\n  Puppy[] public puppies;\n\n  mapping (address => uint) public puppyIndexesByOwner;\n\n  function getMyPuppyName() public view returns (string) {\n    return puppies[puppyIndexesByOwner[msg.sender]].name;\n  }\n\n  function createPuppies(uint _genes, string _name) public {\n    uint index = puppies.push(Puppy(_genes, _name)) - 1;\n    puppyIndexesByOwner[msg.sender] = index;\n  }\n}\n",
+  "sourcePath": "/Users/yuka.sato/Workspace/repositories/cryptopuppies/contracts/CryptoPuppies.sol",
   "ast": {
     "attributes": {
-      "absolutePath": "/Users/wakitakouji/cryptopuppies/contracts/CryptoPuppies.sol",
+      "absolutePath": "/Users/yuka.sato/Workspace/repositories/cryptopuppies/contracts/CryptoPuppies.sol",
       "exportedSymbols": {
         "CryptoPuppies": [
-          57
+          55
         ]
       }
     },
@@ -126,51 +117,25 @@
           "documentation": null,
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            57
+            55
           ],
           "name": "CryptoPuppies",
-          "scope": 58
+          "scope": 56
         },
         "children": [
           {
             "attributes": {
               "canonicalName": "CryptoPuppies.Puppy",
               "name": "Puppy",
-              "scope": 57,
+              "scope": 55,
               "visibility": "public"
             },
             "children": [
               {
                 "attributes": {
                   "constant": false,
-                  "name": "owner",
-                  "scope": 8,
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "type": "address",
-                  "value": null,
-                  "visibility": "internal"
-                },
-                "children": [
-                  {
-                    "attributes": {
-                      "name": "address",
-                      "type": "address"
-                    },
-                    "id": 2,
-                    "name": "ElementaryTypeName",
-                    "src": "72:7:0"
-                  }
-                ],
-                "id": 3,
-                "name": "VariableDeclaration",
-                "src": "72:13:0"
-              },
-              {
-                "attributes": {
-                  "constant": false,
                   "name": "genes",
-                  "scope": 8,
+                  "scope": 6,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "uint256",
@@ -183,20 +148,20 @@
                       "name": "uint",
                       "type": "uint256"
                     },
-                    "id": 4,
+                    "id": 2,
                     "name": "ElementaryTypeName",
-                    "src": "91:4:0"
+                    "src": "72:4:0"
                   }
                 ],
-                "id": 5,
+                "id": 3,
                 "name": "VariableDeclaration",
-                "src": "91:10:0"
+                "src": "72:10:0"
               },
               {
                 "attributes": {
                   "constant": false,
                   "name": "name",
-                  "scope": 8,
+                  "scope": 6,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "string storage pointer",
@@ -209,25 +174,25 @@
                       "name": "string",
                       "type": "string storage pointer"
                     },
-                    "id": 6,
+                    "id": 4,
                     "name": "ElementaryTypeName",
-                    "src": "107:6:0"
+                    "src": "88:6:0"
                   }
                 ],
-                "id": 7,
+                "id": 5,
                 "name": "VariableDeclaration",
-                "src": "107:11:0"
+                "src": "88:11:0"
               }
             ],
-            "id": 8,
+            "id": 6,
             "name": "StructDefinition",
-            "src": "53:70:0"
+            "src": "53:51:0"
           },
           {
             "attributes": {
               "constant": false,
               "name": "puppies",
-              "scope": 57,
+              "scope": 55,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "struct CryptoPuppies.Puppy storage ref[] storage ref",
@@ -245,22 +210,67 @@
                     "attributes": {
                       "contractScope": null,
                       "name": "Puppy",
-                      "referencedDeclaration": 8,
+                      "referencedDeclaration": 6,
                       "type": "struct CryptoPuppies.Puppy storage pointer"
                     },
-                    "id": 9,
+                    "id": 7,
                     "name": "UserDefinedTypeName",
-                    "src": "127:5:0"
+                    "src": "108:5:0"
                   }
                 ],
-                "id": 10,
+                "id": 8,
                 "name": "ArrayTypeName",
-                "src": "127:7:0"
+                "src": "108:7:0"
               }
             ],
-            "id": 11,
+            "id": 9,
             "name": "VariableDeclaration",
-            "src": "127:22:0"
+            "src": "108:22:0"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "puppyIndexesByOwner",
+              "scope": 55,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "mapping(address => uint256)",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "type": "mapping(address => uint256)"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "type": "address"
+                    },
+                    "id": 10,
+                    "name": "ElementaryTypeName",
+                    "src": "144:7:0"
+                  },
+                  {
+                    "attributes": {
+                      "name": "uint",
+                      "type": "uint256"
+                    },
+                    "id": 11,
+                    "name": "ElementaryTypeName",
+                    "src": "155:4:0"
+                  }
+                ],
+                "id": 12,
+                "name": "Mapping",
+                "src": "135:25:0"
+              }
+            ],
+            "id": 13,
+            "name": "VariableDeclaration",
+            "src": "135:52:0"
           },
           {
             "attributes": {
@@ -270,46 +280,24 @@
               "modifiers": [
                 null
               ],
-              "name": "getPuppyName",
+              "name": "getMyPuppyName",
               "payable": false,
-              "scope": 57,
+              "scope": 55,
               "stateMutability": "view",
               "superFunction": null,
               "visibility": "public"
             },
             "children": [
               {
-                "children": [
-                  {
-                    "attributes": {
-                      "constant": false,
-                      "name": "_number",
-                      "scope": 24,
-                      "stateVariable": false,
-                      "storageLocation": "default",
-                      "type": "uint256",
-                      "value": null,
-                      "visibility": "internal"
-                    },
-                    "children": [
-                      {
-                        "attributes": {
-                          "name": "uint",
-                          "type": "uint256"
-                        },
-                        "id": 12,
-                        "name": "ElementaryTypeName",
-                        "src": "176:4:0"
-                      }
-                    ],
-                    "id": 13,
-                    "name": "VariableDeclaration",
-                    "src": "176:12:0"
-                  }
-                ],
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
                 "id": 14,
                 "name": "ParameterList",
-                "src": "175:14:0"
+                "src": "215:2:0"
               },
               {
                 "children": [
@@ -317,7 +305,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "",
-                      "scope": 24,
+                      "scope": 27,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "string memory",
@@ -332,17 +320,17 @@
                         },
                         "id": 15,
                         "name": "ElementaryTypeName",
-                        "src": "211:6:0"
+                        "src": "239:6:0"
                       }
                     ],
                     "id": 16,
                     "name": "VariableDeclaration",
-                    "src": "211:6:0"
+                    "src": "239:6:0"
                   }
                 ],
                 "id": 17,
                 "name": "ParameterList",
-                "src": "210:8:0"
+                "src": "238:8:0"
               },
               {
                 "children": [
@@ -359,7 +347,7 @@
                           "isPure": false,
                           "lValueRequested": false,
                           "member_name": "name",
-                          "referencedDeclaration": 7,
+                          "referencedDeclaration": 5,
                           "type": "string storage ref"
                         },
                         "children": [
@@ -379,216 +367,98 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 11,
+                                  "referencedDeclaration": 9,
                                   "type": "struct CryptoPuppies.Puppy storage ref[] storage ref",
                                   "value": "puppies"
                                 },
                                 "id": 18,
                                 "name": "Identifier",
-                                "src": "232:7:0"
+                                "src": "260:7:0"
                               },
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
-                                  "referencedDeclaration": 13,
-                                  "type": "uint256",
-                                  "value": "_number"
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "type": "uint256"
                                 },
-                                "id": 19,
-                                "name": "Identifier",
-                                "src": "240:7:0"
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 13,
+                                      "type": "mapping(address => uint256)",
+                                      "value": "puppyIndexesByOwner"
+                                    },
+                                    "id": 19,
+                                    "name": "Identifier",
+                                    "src": "268:19:0"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": false,
+                                      "lValueRequested": false,
+                                      "member_name": "sender",
+                                      "referencedDeclaration": null,
+                                      "type": "address"
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "overloadedDeclarations": [
+                                            null
+                                          ],
+                                          "referencedDeclaration": 124,
+                                          "type": "msg",
+                                          "value": "msg"
+                                        },
+                                        "id": 20,
+                                        "name": "Identifier",
+                                        "src": "288:3:0"
+                                      }
+                                    ],
+                                    "id": 21,
+                                    "name": "MemberAccess",
+                                    "src": "288:10:0"
+                                  }
+                                ],
+                                "id": 22,
+                                "name": "IndexAccess",
+                                "src": "268:31:0"
                               }
                             ],
-                            "id": 20,
+                            "id": 23,
                             "name": "IndexAccess",
-                            "src": "232:16:0"
+                            "src": "260:40:0"
                           }
                         ],
-                        "id": 21,
+                        "id": 24,
                         "name": "MemberAccess",
-                        "src": "232:21:0"
+                        "src": "260:45:0"
                       }
                     ],
-                    "id": 22,
+                    "id": 25,
                     "name": "Return",
-                    "src": "225:28:0"
+                    "src": "253:52:0"
                   }
                 ],
-                "id": 23,
+                "id": 26,
                 "name": "Block",
-                "src": "219:39:0"
+                "src": "247:63:0"
               }
             ],
-            "id": 24,
+            "id": 27,
             "name": "FunctionDefinition",
-            "src": "154:104:0"
-          },
-          {
-            "attributes": {
-              "constant": true,
-              "implemented": true,
-              "isConstructor": false,
-              "modifiers": [
-                null
-              ],
-              "name": "getPuppyOwner",
-              "payable": false,
-              "scope": 57,
-              "stateMutability": "view",
-              "superFunction": null,
-              "visibility": "public"
-            },
-            "children": [
-              {
-                "children": [
-                  {
-                    "attributes": {
-                      "constant": false,
-                      "name": "_number",
-                      "scope": 37,
-                      "stateVariable": false,
-                      "storageLocation": "default",
-                      "type": "uint256",
-                      "value": null,
-                      "visibility": "internal"
-                    },
-                    "children": [
-                      {
-                        "attributes": {
-                          "name": "uint",
-                          "type": "uint256"
-                        },
-                        "id": 25,
-                        "name": "ElementaryTypeName",
-                        "src": "285:4:0"
-                      }
-                    ],
-                    "id": 26,
-                    "name": "VariableDeclaration",
-                    "src": "285:12:0"
-                  }
-                ],
-                "id": 27,
-                "name": "ParameterList",
-                "src": "284:14:0"
-              },
-              {
-                "children": [
-                  {
-                    "attributes": {
-                      "constant": false,
-                      "name": "",
-                      "scope": 37,
-                      "stateVariable": false,
-                      "storageLocation": "default",
-                      "type": "address",
-                      "value": null,
-                      "visibility": "internal"
-                    },
-                    "children": [
-                      {
-                        "attributes": {
-                          "name": "address",
-                          "type": "address"
-                        },
-                        "id": 28,
-                        "name": "ElementaryTypeName",
-                        "src": "320:7:0"
-                      }
-                    ],
-                    "id": 29,
-                    "name": "VariableDeclaration",
-                    "src": "320:7:0"
-                  }
-                ],
-                "id": 30,
-                "name": "ParameterList",
-                "src": "319:9:0"
-              },
-              {
-                "children": [
-                  {
-                    "attributes": {
-                      "functionReturnParameters": 30
-                    },
-                    "children": [
-                      {
-                        "attributes": {
-                          "argumentTypes": null,
-                          "isConstant": false,
-                          "isLValue": true,
-                          "isPure": false,
-                          "lValueRequested": false,
-                          "member_name": "owner",
-                          "referencedDeclaration": 3,
-                          "type": "address"
-                        },
-                        "children": [
-                          {
-                            "attributes": {
-                              "argumentTypes": null,
-                              "isConstant": false,
-                              "isLValue": true,
-                              "isPure": false,
-                              "lValueRequested": false,
-                              "type": "struct CryptoPuppies.Puppy storage ref"
-                            },
-                            "children": [
-                              {
-                                "attributes": {
-                                  "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
-                                  "referencedDeclaration": 11,
-                                  "type": "struct CryptoPuppies.Puppy storage ref[] storage ref",
-                                  "value": "puppies"
-                                },
-                                "id": 31,
-                                "name": "Identifier",
-                                "src": "342:7:0"
-                              },
-                              {
-                                "attributes": {
-                                  "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
-                                  "referencedDeclaration": 26,
-                                  "type": "uint256",
-                                  "value": "_number"
-                                },
-                                "id": 32,
-                                "name": "Identifier",
-                                "src": "350:7:0"
-                              }
-                            ],
-                            "id": 33,
-                            "name": "IndexAccess",
-                            "src": "342:16:0"
-                          }
-                        ],
-                        "id": 34,
-                        "name": "MemberAccess",
-                        "src": "342:22:0"
-                      }
-                    ],
-                    "id": 35,
-                    "name": "Return",
-                    "src": "335:29:0"
-                  }
-                ],
-                "id": 36,
-                "name": "Block",
-                "src": "329:40:0"
-              }
-            ],
-            "id": 37,
-            "name": "FunctionDefinition",
-            "src": "262:107:0"
+            "src": "192:118:0"
           },
           {
             "attributes": {
@@ -600,7 +470,7 @@
               ],
               "name": "createPuppies",
               "payable": false,
-              "scope": 57,
+              "scope": 55,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "public"
@@ -612,7 +482,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "_genes",
-                      "scope": 56,
+                      "scope": 54,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -625,20 +495,20 @@
                           "name": "uint",
                           "type": "uint256"
                         },
-                        "id": 38,
+                        "id": 28,
                         "name": "ElementaryTypeName",
-                        "src": "396:4:0"
+                        "src": "337:4:0"
                       }
                     ],
-                    "id": 39,
+                    "id": 29,
                     "name": "VariableDeclaration",
-                    "src": "396:11:0"
+                    "src": "337:11:0"
                   },
                   {
                     "attributes": {
                       "constant": false,
                       "name": "_name",
-                      "scope": 56,
+                      "scope": 54,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "string memory",
@@ -651,19 +521,19 @@
                           "name": "string",
                           "type": "string storage pointer"
                         },
-                        "id": 40,
+                        "id": 30,
                         "name": "ElementaryTypeName",
-                        "src": "409:6:0"
+                        "src": "350:6:0"
                       }
                     ],
-                    "id": 41,
+                    "id": 31,
                     "name": "VariableDeclaration",
-                    "src": "409:12:0"
+                    "src": "350:12:0"
                   }
                 ],
-                "id": 42,
+                "id": 32,
                 "name": "ParameterList",
-                "src": "395:27:0"
+                "src": "336:27:0"
               },
               {
                 "attributes": {
@@ -672,12 +542,214 @@
                   ]
                 },
                 "children": [],
-                "id": 43,
+                "id": 33,
                 "name": "ParameterList",
-                "src": "430:0:0"
+                "src": "371:0:0"
               },
               {
                 "children": [
+                  {
+                    "attributes": {
+                      "assignments": [
+                        35
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "name": "index",
+                          "scope": 54,
+                          "stateVariable": false,
+                          "storageLocation": "default",
+                          "type": "uint256",
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "name": "uint",
+                              "type": "uint256"
+                            },
+                            "id": 34,
+                            "name": "ElementaryTypeName",
+                            "src": "377:4:0"
+                          }
+                        ],
+                        "id": 35,
+                        "name": "VariableDeclaration",
+                        "src": "377:10:0"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "commonType": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "-",
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "isStructConstructorCall": false,
+                              "lValueRequested": false,
+                              "names": [
+                                null
+                              ],
+                              "type": "uint256",
+                              "type_conversion": false
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_struct$_Puppy_$6_memory",
+                                      "typeString": "struct CryptoPuppies.Puppy memory"
+                                    }
+                                  ],
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "push",
+                                  "referencedDeclaration": null,
+                                  "type": "function (struct CryptoPuppies.Puppy storage ref) returns (uint256)"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 9,
+                                      "type": "struct CryptoPuppies.Puppy storage ref[] storage ref",
+                                      "value": "puppies"
+                                    },
+                                    "id": 36,
+                                    "name": "Identifier",
+                                    "src": "390:7:0"
+                                  }
+                                ],
+                                "id": 37,
+                                "name": "MemberAccess",
+                                "src": "390:12:0"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "isStructConstructorCall": true,
+                                  "lValueRequested": false,
+                                  "names": [
+                                    null
+                                  ],
+                                  "type": "struct CryptoPuppies.Puppy memory",
+                                  "type_conversion": false
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": [
+                                        {
+                                          "typeIdentifier": "t_uint256",
+                                          "typeString": "uint256"
+                                        },
+                                        {
+                                          "typeIdentifier": "t_string_memory_ptr",
+                                          "typeString": "string memory"
+                                        }
+                                      ],
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 6,
+                                      "type": "type(struct CryptoPuppies.Puppy storage pointer)",
+                                      "value": "Puppy"
+                                    },
+                                    "id": 38,
+                                    "name": "Identifier",
+                                    "src": "403:5:0"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 29,
+                                      "type": "uint256",
+                                      "value": "_genes"
+                                    },
+                                    "id": 39,
+                                    "name": "Identifier",
+                                    "src": "409:6:0"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 31,
+                                      "type": "string memory",
+                                      "value": "_name"
+                                    },
+                                    "id": 40,
+                                    "name": "Identifier",
+                                    "src": "417:5:0"
+                                  }
+                                ],
+                                "id": 41,
+                                "name": "FunctionCall",
+                                "src": "403:20:0"
+                              }
+                            ],
+                            "id": 42,
+                            "name": "FunctionCall",
+                            "src": "390:34:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "31",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "number",
+                              "type": "int_const 1",
+                              "value": "1"
+                            },
+                            "id": 43,
+                            "name": "Literal",
+                            "src": "427:1:0"
+                          }
+                        ],
+                        "id": 44,
+                        "name": "BinaryOperation",
+                        "src": "390:38:0"
+                      }
+                    ],
+                    "id": 45,
+                    "name": "VariableDeclarationStatement",
+                    "src": "377:51:0"
+                  },
                   {
                     "children": [
                       {
@@ -686,30 +758,19 @@
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
-                          "isStructConstructorCall": false,
                           "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
-                          "type": "uint256",
-                          "type_conversion": false
+                          "operator": "=",
+                          "type": "uint256"
                         },
                         "children": [
                           {
                             "attributes": {
-                              "argumentTypes": [
-                                {
-                                  "typeIdentifier": "t_struct$_Puppy_$8_memory",
-                                  "typeString": "struct CryptoPuppies.Puppy memory"
-                                }
-                              ],
+                              "argumentTypes": null,
                               "isConstant": false,
-                              "isLValue": false,
+                              "isLValue": true,
                               "isPure": false,
-                              "lValueRequested": false,
-                              "member_name": "push",
-                              "referencedDeclaration": null,
-                              "type": "function (struct CryptoPuppies.Puppy storage ref) returns (uint256)"
+                              "lValueRequested": true,
+                              "type": "uint256"
                             },
                             "children": [
                               {
@@ -718,60 +779,13 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 11,
-                                  "type": "struct CryptoPuppies.Puppy storage ref[] storage ref",
-                                  "value": "puppies"
+                                  "referencedDeclaration": 13,
+                                  "type": "mapping(address => uint256)",
+                                  "value": "puppyIndexesByOwner"
                                 },
-                                "id": 44,
+                                "id": 46,
                                 "name": "Identifier",
-                                "src": "436:7:0"
-                              }
-                            ],
-                            "id": 46,
-                            "name": "MemberAccess",
-                            "src": "436:12:0"
-                          },
-                          {
-                            "attributes": {
-                              "argumentTypes": null,
-                              "isConstant": false,
-                              "isLValue": false,
-                              "isPure": false,
-                              "isStructConstructorCall": true,
-                              "lValueRequested": false,
-                              "names": [
-                                null
-                              ],
-                              "type": "struct CryptoPuppies.Puppy memory",
-                              "type_conversion": false
-                            },
-                            "children": [
-                              {
-                                "attributes": {
-                                  "argumentTypes": [
-                                    {
-                                      "typeIdentifier": "t_address",
-                                      "typeString": "address"
-                                    },
-                                    {
-                                      "typeIdentifier": "t_uint256",
-                                      "typeString": "uint256"
-                                    },
-                                    {
-                                      "typeIdentifier": "t_string_memory_ptr",
-                                      "typeString": "string memory"
-                                    }
-                                  ],
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
-                                  "referencedDeclaration": 8,
-                                  "type": "type(struct CryptoPuppies.Puppy storage pointer)",
-                                  "value": "Puppy"
-                                },
-                                "id": 47,
-                                "name": "Identifier",
-                                "src": "449:5:0"
+                                "src": "434:19:0"
                               },
                               {
                                 "attributes": {
@@ -791,81 +805,67 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 69,
+                                      "referencedDeclaration": 124,
                                       "type": "msg",
                                       "value": "msg"
                                     },
-                                    "id": 48,
+                                    "id": 47,
                                     "name": "Identifier",
-                                    "src": "455:3:0"
+                                    "src": "454:3:0"
                                   }
                                 ],
-                                "id": 49,
+                                "id": 48,
                                 "name": "MemberAccess",
-                                "src": "455:10:0"
-                              },
-                              {
-                                "attributes": {
-                                  "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
-                                  "referencedDeclaration": 39,
-                                  "type": "uint256",
-                                  "value": "_genes"
-                                },
-                                "id": 50,
-                                "name": "Identifier",
-                                "src": "467:6:0"
-                              },
-                              {
-                                "attributes": {
-                                  "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
-                                  "referencedDeclaration": 41,
-                                  "type": "string memory",
-                                  "value": "_name"
-                                },
-                                "id": 51,
-                                "name": "Identifier",
-                                "src": "475:5:0"
+                                "src": "454:10:0"
                               }
                             ],
-                            "id": 52,
-                            "name": "FunctionCall",
-                            "src": "449:32:0"
+                            "id": 49,
+                            "name": "IndexAccess",
+                            "src": "434:31:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 35,
+                              "type": "uint256",
+                              "value": "index"
+                            },
+                            "id": 50,
+                            "name": "Identifier",
+                            "src": "468:5:0"
                           }
                         ],
-                        "id": 53,
-                        "name": "FunctionCall",
-                        "src": "436:46:0"
+                        "id": 51,
+                        "name": "Assignment",
+                        "src": "434:39:0"
                       }
                     ],
-                    "id": 54,
+                    "id": 52,
                     "name": "ExpressionStatement",
-                    "src": "436:46:0"
+                    "src": "434:39:0"
                   }
                 ],
-                "id": 55,
+                "id": 53,
                 "name": "Block",
-                "src": "430:57:0"
+                "src": "371:107:0"
               }
             ],
-            "id": 56,
+            "id": 54,
             "name": "FunctionDefinition",
-            "src": "373:114:0"
+            "src": "314:164:0"
           }
         ],
-        "id": 57,
+        "id": 55,
         "name": "ContractDefinition",
-        "src": "26:464:0"
+        "src": "26:454:0"
       }
     ],
-    "id": 58,
+    "id": 56,
     "name": "SourceUnit",
-    "src": "0:491:0"
+    "src": "0:481:0"
   },
   "compiler": {
     "name": "solc",
@@ -879,5 +879,5 @@
     }
   },
   "schemaVersion": "1.0.1",
-  "updatedAt": "2018-01-27T06:27:39.844Z"
+  "updatedAt": "2018-01-27T08:37:55.236Z"
 }

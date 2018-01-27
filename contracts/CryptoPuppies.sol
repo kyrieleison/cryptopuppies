@@ -2,24 +2,20 @@ pragma solidity ^0.4.18;
 
 contract CryptoPuppies {
   struct Puppy {
-    address owner;
     uint genes;
     string name;
   }
 
   Puppy[] public puppies;
 
-  function getPuppyName(uint _number) public view returns (string) {
-    return puppies[_number].name;
+  mapping (address => uint) public puppyIndexesByOwner;
+
+  function getMyPuppyName() public view returns (string) {
+    return puppies[puppyIndexesByOwner[msg.sender]].name;
   }
 
-  function getPuppyOwner(uint _number) public view returns (address) {
-    return puppies[_number].owner;
+  function createPuppies(uint _genes, string _name) public {
+    uint index = puppies.push(Puppy(_genes, _name)) - 1;
+    puppyIndexesByOwner[msg.sender] = index;
   }
-
-  function createPuppies(uint _genes, string _name) public returns(struct[]) {
-    puppies.push(Puppy(msg.sender, _genes, _name));
-    return puppies;
-  }
-
 }

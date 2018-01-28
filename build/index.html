@@ -12,6 +12,11 @@
     あなたのアドレス: <span id="your-address"></span>
   </p>
   <p>
+    あなたの子犬:
+    <p>名前は<span id="your-pappy-name"></span></p>
+    <p>遺伝子は<span id="your-pappy-genes"></span></p>
+  </p>
+  <p>
     <label for="genes">genes:</label>
     <input id="genes" type="text"></input>
     <label for="name">name:</label>
@@ -24,13 +29,25 @@
     web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:7545"));
     web3.eth.defaultAccount = web3.eth.accounts[0];
 
-    var abiArray = [ { "constant": true, "inputs": [], "name": "getMyPuppyName", "outputs": [ { "name": "", "type": "string" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [ { "name": "", "type": "uint256" } ], "name": "puppies", "outputs": [ { "name": "genes", "type": "uint256" }, { "name": "name", "type": "string" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [ { "name": "", "type": "address" } ], "name": "puppyIndexesByOwner", "outputs": [ { "name": "", "type": "uint256" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [ { "name": "_genes", "type": "uint256" }, { "name": "_name", "type": "string" } ], "name": "createPuppy", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" } ];
+    var abiArray = [ { "constant": true, "inputs": [], "name": "getMyPuppyName", "outputs": [ { "name": "", "type": "string" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [ { "name": "", "type": "uint256" } ], "name": "puppies", "outputs": [ { "name": "genes", "type": "uint256" }, { "name": "name", "type": "string" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [ { "name": "", "type": "address" } ], "name": "puppyIndexesByOwner", "outputs": [ { "name": "", "type": "uint256" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [ { "name": "_genes", "type": "uint256" }, { "name": "_name", "type": "string" } ], "name": "createPuppy", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "anonymous": false, "inputs": [ { "indexed": false, "name": "genes", "type": "uint256" }, { "indexed": false, "name": "name", "type": "string" } ], "name": "NewPuppy", "type": "event" } ];
     var contractAddress = "0x345ca3e014aaf5dca488057592ee47305d9b3e10";
     var contract = web3.eth.contract(abiArray).at(contractAddress);
 
     $("#your-address").html(web3.eth.defaultAccount);
     $("#create-pappy").click(function() {
       contract.createPuppy(parseInt($("#genes").val()), $("#name").val(), { from: web3.eth.accounts[0], gas: 2000000 });
+    });
+
+    var event = contract.NewPuppy();
+
+    event.watch(function(error, result) {
+      if (!error) {
+        console.log(result);
+        $("#your-pappy-name").html(result.args.name);
+        $("#your-pappy-genes").html(result.args.genes.c[0]);
+      } else {
+        console.log(error);
+      }
     });
   </script>
 </body>

@@ -30,7 +30,7 @@
 
     $("#your-address").html(web3.eth.defaultAccount);
     $("#create-pappy").click(function() {
-      contract.createPuppy(parseInt($("#genes").val()), $("#name").val());
+      contract.createPuppy(parseInt($("#genes").val()), $("#name").val(), { from: web3.eth.accounts[0], gas: 2000000 });
     });
   </script>
 </body>

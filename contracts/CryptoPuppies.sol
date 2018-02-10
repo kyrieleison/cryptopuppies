@@ -10,7 +10,17 @@ contract CryptoPuppies {
 
   mapping (address => uint) public puppyIndexesByOwner;
 
+  uint public mostSent;
+  address public richest;
+
+  mapping (address => uint) pendingWithdrawals;
+
   event NewPuppy(uint genes, string name);
+
+  function CryptoPuppies() public payable {
+    richest = msg.sender;
+    mostSent = 10;
+  }
 
   function getMyPuppyGenes() public view returns (uint) {
     return puppies[puppyIndexesByOwner[msg.sender]].genes;
@@ -26,7 +36,21 @@ contract CryptoPuppies {
     NewPuppy(_genes, _name);
   }
 
-  function sellMyPuppy(address _recipient) public {
-    _recipient.transfer(10);
+  function buyPuppy() public payable returns (bool) {
+    if (100 > mostSent) {
+      pendingWithdrawals[richest] += 100;
+      richest = msg.sender;
+      mostSent = 100;
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  function withdraw() public payable returns (uint) {
+    uint amount = pendingWithdrawals[msg.sender];
+    pendingWithdrawals[msg.sender] = 0;
+    return amount;
+    // msg.sender.transfer(amount);
   }
 }

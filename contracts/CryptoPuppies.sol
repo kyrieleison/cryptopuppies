@@ -25,4 +25,8 @@ contract CryptoPuppies {
     puppyIndexesByOwner[msg.sender] = index;
     NewPuppy(_genes, _name);
   }
+
+  function sellMyPuppy(address _recipient) public {
+    _recipient.transfer(10);
+  }
 }

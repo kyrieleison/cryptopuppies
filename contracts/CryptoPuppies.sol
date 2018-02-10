@@ -12,6 +12,10 @@ contract CryptoPuppies {
 
   event NewPuppy(uint genes, string name);
 
+  function getMyPuppyGenes() public view returns (uint) {
+    return puppies[puppyIndexesByOwner[msg.sender]].genes;
+  }
+
   function getMyPuppyName() public view returns (string) {
     return puppies[puppyIndexesByOwner[msg.sender]].name;
   }

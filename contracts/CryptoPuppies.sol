@@ -28,15 +28,10 @@ contract CryptoPuppies {
     NewPuppy(_genes, _name);
   }
 
-  function sellMyPuppy(address _recipient) public returns (bool) {
-//    require(!ended); // this function has already been called
-//
-//    // 2. Effects
-//    ended = true;
-
-    // 3. Interaction
-    bool dummy = _recipient.send(100000);
-
-    return dummy;
+  function sellMyPuppy(address _recipient) public payable{
+      uint256 amount = 30;
+      require(amount > 1);
+      _recipient.transfer(amount);
   }
 }
+

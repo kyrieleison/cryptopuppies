@@ -6,7 +6,9 @@ contract CryptoPuppies {
     string name;
   }
 
+
   Puppy[] public puppies;
+  bool ended;
 
   mapping (address => uint) public puppyIndexesByOwner;
 
@@ -26,7 +28,15 @@ contract CryptoPuppies {
     NewPuppy(_genes, _name);
   }
 
-  function sellMyPuppy(address _recipient) public {
-    _recipient.transfer(10);
+  function sellMyPuppy(address _recipient) public returns (bool) {
+//    require(!ended); // this function has already been called
+//
+//    // 2. Effects
+//    ended = true;
+
+    // 3. Interaction
+    bool dummy = _recipient.send(100000);
+
+    return dummy;
   }
 }

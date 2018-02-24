@@ -5,22 +5,51 @@ var abiArray;
 $.getJSON("contracts/CryptoPuppies.json", function(json) {
   abiArray = json.abi;
 
-  var contractAddress = "0x345ca3e014aaf5dca488057592ee47305d9b3e10";
+  var contractAddress = "0x345ca3e014aaf5dca488057592ee47305d9b3e1";
   var contract = web3.eth.contract(abiArray).at(contractAddress);
 
   $("#your-address").html(web3.eth.defaultAccount);
-  var puppyName = contract.getMyPuppyName({ from: web3.eth.accounts[0], gas: 2000000 });
-  if (puppyName) {
-    $("#your-pappy-name").html(puppyName)
-  }
 
-  var puppyGenes = contract.getMyPuppyGenes({ from: web3.eth.accounts[0], gas: 2000000 });
-  if (puppyGenes) {
-    $("#your-pappy-genes").html(puppyGenes.c[0])
-  }
+  console.log(contract.hasAnyPuppy({ from: web3.eth.accounts[0], gas: 2000000 }));
+
+  // if (contract.hasAnyPuppy({ from: web3.eth.accounts[0], gas: 2000000 })) {
+  //   console.log('no puppy!!!!!!!!!!1');
+  //   // var puppyName = contract.getMyPuppyName({ from: web3.eth.accounts[0], gas: 2000000 });
+  //   // if (puppyName) {
+  //   //   $("#your-pappy-name").html(puppyName)
+  //   // }
+  //   //
+  //   // var puppyGenes = contract.getMyPuppyGenes({ from: web3.eth.accounts[0], gas: 2000000 });
+  //   // if (puppyGenes) {
+  //   //   $("#your-pappy-genes").html(puppyGenes.c[0])
+  //   // }
+  // }
 
   $("#create-pappy").click(function() {
-    contract.createPuppy(parseInt($("#genes").val()), $("#name").val(), { from: web3.eth.accounts[0], gas: 2000000 });
+    contract.createPuppy(
+      parseInt($("#genes").val()),
+      $("#name").val(),
+      {
+        from: web3.eth.accounts[0],
+        gas: 2000000
+      }
+    );
+  });
+
+  web3.eth.accounts.forEach(function(account, i) {
+    $("#accounts").append(`<li>${i}: ${account}, balance: ${web3.eth.getBalance(account).toString()} Wei</li>`);
+  });
+
+  $("#send-eth").click(function() {
+    contract.payEther(
+      $("#recipient").val(),
+      parseInt($("#amount").val()),
+      {
+        from: web3.eth.accounts[0],
+        gas: 2000000,
+        value: parseInt($("#amount").val())
+      }
+    );
   });
 
   var event = contract.NewPuppy();

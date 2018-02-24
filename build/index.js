@@ -5,25 +5,22 @@ var abiArray;
 $.getJSON("contracts/CryptoPuppies.json", function(json) {
   abiArray = json.abi;
 
-  var contractAddress = "0x345ca3e014aaf5dca488057592ee47305d9b3e1";
+  var contractAddress = "0x345ca3e014aaf5dca488057592ee47305d9b3e10";
   var contract = web3.eth.contract(abiArray).at(contractAddress);
 
   $("#your-address").html(web3.eth.defaultAccount);
 
-  console.log(contract.hasAnyPuppy({ from: web3.eth.accounts[0], gas: 2000000 }));
+  if (contract.hasAnyPuppy({ from: web3.eth.accounts[0], gas: 2000000 })) {
+    var puppyName = contract.getMyPuppyName({ from: web3.eth.accounts[0], gas: 2000000 });
+    if (puppyName) {
+      $("#your-pappy-name").html(puppyName)
+    }
 
-  // if (contract.hasAnyPuppy({ from: web3.eth.accounts[0], gas: 2000000 })) {
-  //   console.log('no puppy!!!!!!!!!!1');
-  //   // var puppyName = contract.getMyPuppyName({ from: web3.eth.accounts[0], gas: 2000000 });
-  //   // if (puppyName) {
-  //   //   $("#your-pappy-name").html(puppyName)
-  //   // }
-  //   //
-  //   // var puppyGenes = contract.getMyPuppyGenes({ from: web3.eth.accounts[0], gas: 2000000 });
-  //   // if (puppyGenes) {
-  //   //   $("#your-pappy-genes").html(puppyGenes.c[0])
-  //   // }
-  // }
+    var puppyGenes = contract.getMyPuppyGenes({ from: web3.eth.accounts[0], gas: 2000000 });
+    if (puppyGenes) {
+      $("#your-pappy-genes").html(puppyGenes.c[0])
+    }
+  }
 
   $("#create-pappy").click(function() {
     contract.createPuppy(

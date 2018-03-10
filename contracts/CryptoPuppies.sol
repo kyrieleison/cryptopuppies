@@ -43,14 +43,12 @@ contract CryptoPuppies {
     }
 
     function getPuppiesLength() public view returns (uint) {
-		return puppies.length;
-	}
+        return puppies.length;
+    }
 
     function getPuppy(uint _index) public view returns (string) {
-
-			return puppies[_index].name;
-
-	}
+        return puppies[_index].name;
+    }
 
     function createPuppy(uint _genes, string _name) public {
         int index = int(puppies.push(Puppy(_genes, _name)) - 1);

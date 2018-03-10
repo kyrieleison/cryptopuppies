@@ -8,12 +8,12 @@ contract CryptoPuppies {
 
     Puppy[] public puppies;
 
-    mapping(address => int) public puppyIndexesByOwner;
+    mapping(address => int[]) public puppyIndexesByOwner;
 
     event NewPuppy(uint genes, string name);
 
     modifier onlyPuppyOwner() {
-        require(puppyIndexesByOwner[msg.sender] > 0);
+        require(puppyIndexesByOwner[msg.sender].length > 0);
         _;
     }
 
@@ -26,23 +26,23 @@ contract CryptoPuppies {
             return false;
         }
 
-        int index = puppyIndexesByOwner[msg.sender];
-        if (index <= 0) {
+        uint puppyCount = puppyIndexesByOwner[msg.sender].length;
+        if (puppyCount <= 0) {
             return false;
         }
 
-        return puppies[uint(index)].genes != 0;
+        return puppies[uint(puppyIndexesByOwner[msg.sender][0])].genes != 0;
     }
 
     function getMyPuppyGenes() public view onlyPuppyOwner returns (uint) {
-        return puppies[uint(puppyIndexesByOwner[msg.sender])].genes;
+        return puppies[uint(puppyIndexesByOwner[msg.sender][0])].genes;
     }
 
     function getMyPuppyName() public view onlyPuppyOwner returns (string) {
-        return puppies[uint(puppyIndexesByOwner[msg.sender])].name;
+        return puppies[uint(puppyIndexesByOwner[msg.sender][0])].name;
     }
 
-    function getPuppiesLength() public view returns (uint) {
+    function getPuppiesCount() public view returns (uint) {
         return puppies.length;
     }
 
@@ -52,14 +52,15 @@ contract CryptoPuppies {
 
     function createPuppy(uint _genes, string _name) public {
         int index = int(puppies.push(Puppy(_genes, _name)) - 1);
-        puppyIndexesByOwner[msg.sender] = index;
+        puppyIndexesByOwner[msg.sender].push(index);
         NewPuppy(_genes, _name);
     }
 
-    function buyPuppy(address _from, uint _price) public payable {
+    function buyPuppy(address _from, uint _index, uint _price) public payable {
         payEther(_from, _price);
-        puppyIndexesByOwner[msg.sender] = puppyIndexesByOwner[_from];
-        puppyIndexesByOwner[_from] = -1;
+        puppyIndexesByOwner[msg.sender].push(puppyIndexesByOwner[_from][_index]);
+        delete(puppyIndexesByOwner[_from][_index]);
+        puppyIndexesByOwner[_from].length--;
     }
 
     function payEther(address _recipient, uint _amount) public payable {

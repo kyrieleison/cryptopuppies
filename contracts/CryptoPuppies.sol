@@ -34,6 +34,10 @@ contract CryptoPuppies {
         return puppies[uint(puppyIndexesByOwner[msg.sender][0])].genes != 0;
     }
 
+    function getMyPuppyCount() public view onlyPuppyOwner returns (uint) {
+        return puppyIndexesByOwner[msg.sender].length;
+    }
+
     function getMyPuppyGenes(uint _index) public view onlyPuppyOwner returns (uint) {
         return puppies[uint(puppyIndexesByOwner[msg.sender][_index])].genes;
     }

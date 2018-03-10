@@ -5,25 +5,19 @@ var abiArray;
 $.getJSON("contracts/CryptoPuppies.json", function(json) {
   abiArray = json.abi;
 
-  //var contractAddress = "0x345ca3e014aaf5dca488057592ee47305d9b3e10";
-  var contractAddress = "0xf4c77cb9b4ff49504cd1a2f6fab3141043103e24";
+  var contractAddress = "0x74e3fc764c2474f25369b9d021b7f92e8441a2dc";
   var contract = web3.eth.contract(abiArray).at(contractAddress);
 
-  $("#your-address").html(web3.eth.defaultAccount);
+  $("#myaddress").html(web3.eth.defaultAccount);
 
   if (contract.hasAnyPuppy({ from: web3.eth.accounts[0], gas: 2000000 })) {
-    var puppyName = contract.getMyPuppyName({ from: web3.eth.accounts[0], gas: 2000000 });
-    if (puppyName) {
-      $("#your-pappy-name").html(puppyName)
-    }
-
-    var puppyGenes = contract.getMyPuppyGenes({ from: web3.eth.accounts[0], gas: 2000000 });
-    if (puppyGenes) {
-      $("#your-pappy-genes").html(puppyGenes.c[0])
+    for (var i = 0; i < contract.getMyPuppyCount(); i ++) {
+      $("#mypuppies").append(`<li>name: ${contract.getMyPuppyName(i)}</li>`);
+      $("#mypuppies").append(`<li>genes: ${contract.getMyPuppyGenes(i).c[0]}</li>`);
     }
   }
 
-  $("#create-pappy").click(function() {
+  $("#create-puppy").click(function() {
     contract.createPuppy(
       parseInt($("#genes").val()),
       $("#name").val(),
@@ -50,7 +44,7 @@ $.getJSON("contracts/CryptoPuppies.json", function(json) {
     $("#accounts").append(`<li>${i}: ${account}, balance: ${web3.eth.getBalance(account).toString()} Wei</li>`);
   });
 
-  for(var i = 1;i < contract.getPuppiesLength() ; i++){
+  for (var i = 1; i < contract.getPuppiesCount(); i++) {
     var name = contract.getPuppy(i);
     $("#puppy-list").append(`<li> ${name} </li>`);
   }

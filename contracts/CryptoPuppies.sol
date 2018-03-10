@@ -34,12 +34,12 @@ contract CryptoPuppies {
         return puppies[uint(puppyIndexesByOwner[msg.sender][0])].genes != 0;
     }
 
-    function getMyPuppyGenes() public view onlyPuppyOwner returns (uint) {
-        return puppies[uint(puppyIndexesByOwner[msg.sender][0])].genes;
+    function getMyPuppyGenes(uint _index) public view onlyPuppyOwner returns (uint) {
+        return puppies[uint(puppyIndexesByOwner[msg.sender][_index])].genes;
     }
 
-    function getMyPuppyName() public view onlyPuppyOwner returns (string) {
-        return puppies[uint(puppyIndexesByOwner[msg.sender][0])].name;
+    function getMyPuppyName(uint _index) public view onlyPuppyOwner returns (string) {
+        return puppies[uint(puppyIndexesByOwner[msg.sender][_index])].name;
     }
 
     function getPuppiesCount() public view returns (uint) {

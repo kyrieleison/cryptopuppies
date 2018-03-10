@@ -33,6 +33,18 @@ $.getJSON("contracts/CryptoPuppies.json", function(json) {
     );
   });
 
+  $("#buy-puppy").click(function() {
+    contract.buyPuppy(
+      $("#from").val(),
+      parseInt($("#price").val()),
+      {
+        from: web3.eth.accounts[0],
+        gas: 2000000,
+        value: parseInt($("#price").val())
+      }
+    );
+  });
+
   web3.eth.accounts.forEach(function(account, i) {
     $("#accounts").append(`<li>${i}: ${account}, balance: ${web3.eth.getBalance(account).toString()} Wei</li>`);
   });

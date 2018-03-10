@@ -5,7 +5,8 @@ var abiArray;
 $.getJSON("contracts/CryptoPuppies.json", function(json) {
   abiArray = json.abi;
 
-  var contractAddress = "0x345ca3e014aaf5dca488057592ee47305d9b3e10";
+  //var contractAddress = "0x345ca3e014aaf5dca488057592ee47305d9b3e10";
+  var contractAddress = "0xf4c77cb9b4ff49504cd1a2f6fab3141043103e24";
   var contract = web3.eth.contract(abiArray).at(contractAddress);
 
   $("#your-address").html(web3.eth.defaultAccount);
@@ -49,6 +50,11 @@ $.getJSON("contracts/CryptoPuppies.json", function(json) {
     $("#accounts").append(`<li>${i}: ${account}, balance: ${web3.eth.getBalance(account).toString()} Wei</li>`);
   });
 
+  for(var i = 1;i < contract.getPuppiesLength() ; i++){
+    var name = contract.getPuppy(i);
+    $("#puppy-list").append(`<li> ${name} </li>`);
+  }
+
   $("#send-eth").click(function() {
     contract.payEther(
       $("#recipient").val(),
@@ -71,4 +77,5 @@ $.getJSON("contracts/CryptoPuppies.json", function(json) {
       console.log(error);
     }
   });
+
 });
